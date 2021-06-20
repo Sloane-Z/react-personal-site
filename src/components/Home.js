@@ -177,10 +177,10 @@ export default class Home extends Component {
                 </CircleBkg>
                 <IconsWrapper>
                     <Row >
-                        <Col sm={3} md={3} lg={3}><IconText id = 'eduicon'><IconEducation size='60' ></IconEducation></IconText><Text id='edu'>Education</Text></Col>
-                        <Col sm={3} md={3} lg={3}><IconText id = 'expicon'><IconExperience size='60'></IconExperience></IconText><Text id='exp'>Experience</Text> </Col>
-                        <Col sm={3} md={3} lg={3}><IconText id = 'prjicon'><IconProject size='60'></IconProject></IconText> <Text id='prj'>Project</Text></Col>
-                        <Col sm={3} md={3} lg={3}><IconText id = 'ctcicon'><IconContact size='60'></IconContact></IconText> <Text id='ctc'>Contact</Text></Col>                                                                                 
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'eduicon'><IconEducation size='60' ></IconEducation></IconText><Text id='edu'>Education</Text></Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'expicon'><IconExperience size='60'></IconExperience></IconText><Text id='exp'>Experience</Text> </Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'prjicon'><IconProject size='60'></IconProject></IconText> <Text id='prj'>Project</Text></Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'ctcicon'><IconContact size='60'></IconContact></IconText> <Text id='ctc'>Contact</Text></Col>                                                                                 
                     </Row>
               
                 </IconsWrapper>
