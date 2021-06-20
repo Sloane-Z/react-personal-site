@@ -22,8 +22,17 @@ const Brand = styled(Navbar.Brand)`
     align-items: center !important;
     text-align: center !important;
 `
-const StyledNav = styled(Nav)``
-const StyledNavDropdown = styled(NavDropdown)``
+const StyledNav = styled(Nav)`
+    .nav-link{
+        border-right: 2px solid gray;
+    }
+    .nav-link:last-of-type{
+        border-right: none;
+    }
+
+`
+const StyledNavDropdown = styled(NavDropdown)`
+`
 
 const BrandCol = styled(Col)`
     margin:5% auto;
@@ -32,8 +41,6 @@ const NavbarCol = styled(Col)`
 
 `
 export default class navbar extends Component {
-
-
     render() {
         return (
             <StyledNavbar bg="light" expand="lg" fixed='top'>
@@ -46,23 +53,16 @@ export default class navbar extends Component {
                         <StyledNavbar.Toggle aria-controls="basic-navbar-nav" />
                         <StyledNavbar.Collapse id="basic-navbar-nav">
                         <StyledNav className="me-auto">
-                            <StyledNav.Link href="#home">Home</StyledNav.Link>
-                            <StyledNav.Link href="#link">Education</StyledNav.Link>
-                            <StyledNav.Link href="#link">Experience</StyledNav.Link>
-                            <StyledNav.Link href="#link">Project</StyledNav.Link>
-                            <StyledNav.Link href="#link">Contact</StyledNav.Link>
-                            <StyledNavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <StyledNavDropdown.Item href="#action/3.1">Action</StyledNavDropdown.Item>
-                            <StyledNavDropdown.Item href="#action/3.2">Another action</StyledNavDropdown.Item>
-                            <StyledNavDropdown.Item href="#action/3.3">Something</StyledNavDropdown.Item>
-                            <StyledNavDropdown.Divider />
-                            <StyledNavDropdown.Item href="#action/3.4">Separated link</StyledNavDropdown.Item>
-                            </StyledNavDropdown>
+                            <StyledNav.Link href="/">Home</StyledNav.Link>
+                            
+                            <StyledNav.Link href="/Education">Education</StyledNav.Link>
+                            <StyledNav.Link href="/Experience">Experience</StyledNav.Link>
+                            <StyledNav.Link href="/Project">Project</StyledNav.Link>
+                            <StyledNav.Link href="/Contact">Contact</StyledNav.Link>
                         </StyledNav>
                         </StyledNavbar.Collapse>
                     </NavbarCol>
                 </Row>
-
             </StyledContainer>
             </StyledNavbar>
         )
