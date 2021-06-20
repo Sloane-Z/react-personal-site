@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
 import styled, {keyframes, css}  from 'styled-components';
+import { Container, Col, Row } from 'react-bootstrap';
+
 import {FaUniversity} from 'react-icons/fa';
 import {AiFillCode} from 'react-icons/ai';
 import {MdWork} from 'react-icons/md';
 import {MdPermContactCalendar} from 'react-icons/md';
 
-const Wrapper = styled.div`
-    background: #FFFFFF;
-    width:100vw;
-    height:100vh;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-`
 
-const Text = styled.div`
+
+const Title = styled.div`
     font: 100 5rem 'Montserrat', sans-serif;
     text-transform: uppercase;
     color: $black;
@@ -27,7 +18,7 @@ const Text = styled.div`
     z-index: 2;
     color: #fff;
 `
-
+/*********   Circle  **********/
 const CircleBkg = styled.div`
   height: 100vh;
   position: absolute;
@@ -74,37 +65,25 @@ const Circle4 = styled.div`
     animation-duration: 3s;
 `
 
-const IconsWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
+
+/********  Icons ************/
+const IconsWrapper = styled(Container)` 
     z-index:2;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    
+    max-width: 350px;
 `
 
-/* icons */
+
 const IconText = styled.div`
-  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
   transition: all 2s ease-in-out;
+`
 
-  span{
-    margin: 0 3%;
-    font-size: 1.0rem;
-    font-weight: 100;
-    color:transparent;
-    transition: all 0.5s ease-out;
-  }
-  &:hover{
-      cursor:pointer;
-      span{
-          color:black;
-      }
-  }
+const Text = styled.div`
+    color: transparent;
 `
 const IconStyle = css`
     color: white;
@@ -115,31 +94,62 @@ const IconStyle = css`
     background: #3e4040;
     color: #fff;
     &:hover {
+        cursor:pointer;
         background: #fff;
         color: #3e4040;
     }
+
+
 `
 
 const IconEducation = styled(FaUniversity)`
     ${IconStyle};
 `
-const IconProject = styled(AiFillCode)`
+const IconExperience = styled(MdWork)`
     ${IconStyle};
 `
-const IconExperience = styled(MdWork)`
+const IconProject = styled(AiFillCode)`
     ${IconStyle};
 `
 const IconContact = styled(MdPermContactCalendar)`
     ${IconStyle};
 `
 
+/*************  Wrapper *************\
+\*************         *************/
+const Wrapper = styled.div`
+    background: #FFFFFF;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    width:100vw;
+    height:100vh;
+
+    #eduicon:hover ~ #edu{
+        color: black;
+        animation:.
+    }
+    #expicon:hover ~ #exp{
+        color: black;
+    }
+    #prjicon:hover ~ #prj{
+        color: black;
+    }
+    #ctcicon:hover ~ #ctc{
+        color: black;
+    }
+`
+
 export default class Home extends Component {
     render() {
         return (
             <Wrapper>
-                <Text>
+                <Title>
                     Sloane Zhang
-                </Text>
+                </Title>
                 <CircleBkg>
                     <Circle1/>
                     <Circle2/>
@@ -147,10 +157,13 @@ export default class Home extends Component {
                     <Circle4/>
                 </CircleBkg>
                 <IconsWrapper>
-                    <IconText><IconEducation size='60'></IconEducation><span>Education</span></IconText>                         
-                    <IconText><IconExperience size='60'></IconExperience><span>Experience</span></IconText>   
-                    <IconText><IconProject size='60'></IconProject><span>Project</span></IconText>   
-                    <IconText><IconContact size='60'></IconContact><span>Contact</span></IconText>                
+                    <Row >
+                        <Col sm={3} md={3} lg={3}><IconText id = 'eduicon'><IconEducation size='60' ></IconEducation></IconText><Text id='edu'>Education</Text></Col>
+                        <Col sm={3} md={3} lg={3}><IconText id = 'expicon'><IconExperience size='60'></IconExperience></IconText><Text id='exp'>Experience</Text> </Col>
+                        <Col sm={3} md={3} lg={3}><IconText id = 'prjicon'><IconProject size='60'></IconProject></IconText> <Text id='prj'>Project</Text></Col>
+                        <Col sm={3} md={3} lg={3}><IconText id = 'ctcicon'><IconContact size='60'></IconContact></IconText> <Text id='ctc'>Contact</Text></Col>                                                                                 
+                    </Row>
+              
                 </IconsWrapper>
 
             </Wrapper>  
