@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import styled, {keyframes, css}  from 'styled-components';
 import {FaUniversity} from 'react-icons/fa';
 import {AiFillCode} from 'react-icons/ai';
+import {MdWork} from 'react-icons/md';
+import {MdPermContactCalendar} from 'react-icons/md';
+
 const Wrapper = styled.div`
     background: #FFFFFF;
     width:100vw;
@@ -78,6 +81,7 @@ const IconsWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    
 `
 
 /* icons */
@@ -87,6 +91,7 @@ const IconText = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 2s ease-in-out;
+
   span{
     margin: 0 3%;
     font-size: 1.0rem;
@@ -104,7 +109,6 @@ const IconText = styled.div`
 const IconStyle = css`
     color: white;
     background: gray;
-    margin: 0 3px;
     padding: 14px;
     border-radius: 50%;
     transition: all 150ms ease-in-out;
@@ -122,7 +126,13 @@ const IconEducation = styled(FaUniversity)`
 const IconProject = styled(AiFillCode)`
     ${IconStyle};
 `
-  
+const IconExperience = styled(MdWork)`
+    ${IconStyle};
+`
+const IconContact = styled(MdPermContactCalendar)`
+    ${IconStyle};
+`
+
 export default class Home extends Component {
     render() {
         return (
@@ -137,8 +147,10 @@ export default class Home extends Component {
                     <Circle4/>
                 </CircleBkg>
                 <IconsWrapper>
-                    <IconText><IconEducation size='60'></IconEducation><span>Education</span></IconText>
-                    <IconText><IconProject size='60'></IconProject><span>Project</span></IconText>                      
+                    <IconText><IconEducation size='60'></IconEducation><span>Education</span></IconText>                         
+                    <IconText><IconExperience size='60'></IconExperience><span>Experience</span></IconText>   
+                    <IconText><IconProject size='60'></IconProject><span>Project</span></IconText>   
+                    <IconText><IconContact size='60'></IconContact><span>Contact</span></IconText>                
                 </IconsWrapper>
 
             </Wrapper>  
