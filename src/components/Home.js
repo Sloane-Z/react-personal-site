@@ -73,17 +73,11 @@ const IconsWrapper = styled(Container)`
     justify-content: center;
     max-width: 350px;
 `
-
-
 const IconText = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
   transition: all 2s ease-in-out;
-`
-
-const Text = styled.div`
-    color: transparent;
 `
 const IconStyle = css`
     color: white;
@@ -98,8 +92,6 @@ const IconStyle = css`
         background: #fff;
         color: #3e4040;
     }
-
-
 `
 
 const IconEducation = styled(FaUniversity)`
@@ -114,9 +106,38 @@ const IconProject = styled(AiFillCode)`
 const IconContact = styled(MdPermContactCalendar)`
     ${IconStyle};
 `
-
+const Text = styled.div`
+    color: transparent;
+    margin-top:-25;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:300;
+`
 /*************  Wrapper *************\
 \*************         *************/
+
+const showup = keyframes`
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+`
+
+const slidein = keyframes`
+    0% { margin-top:-25px; color: transparent;}
+    20% { margin-top:-25px; color: transparent;}
+    35% { margin-top:0px; color: black;}
+    100% { margin-top:0px; color: black;}
+`
+
+const reveal =keyframes`
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+`
+
+
 const Wrapper = styled.div`
     background: #FFFFFF;
     align-content: center;
@@ -127,21 +148,21 @@ const Wrapper = styled.div`
     display: flex;
     width:100vw;
     height:100vh;
-
+    transition: all .3s;
     #eduicon:hover ~ #edu{
-        color: black;
-        animation:.
+        animation: ${slidein} 1.5s ease-in-out forwards;
     }
     #expicon:hover ~ #exp{
-        color: black;
+        animation: ${slidein} 1.5s ease-in-out forwards;
     }
     #prjicon:hover ~ #prj{
-        color: black;
+        animation: ${slidein} 1.5s ease-in-out forwards;
     }
     #ctcicon:hover ~ #ctc{
-        color: black;
+        animation: ${slidein} 1.5s ease-in-out forwards;
     }
 `
+
 
 export default class Home extends Component {
     render() {
