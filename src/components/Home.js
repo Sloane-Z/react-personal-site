@@ -7,7 +7,54 @@ import {AiFillCode} from 'react-icons/ai';
 import {MdWork} from 'react-icons/md';
 import {MdPermContactCalendar} from 'react-icons/md';
 
+/***   Animation  */
+const showup = keyframes`
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+`
 
+const slidein = keyframes`
+    0% { margin-top:-25px; color: transparent;}
+    20% { margin-top:-25px; color: transparent;}
+    35% { margin-top:0px; color: black;}
+    100% { margin-top:0px; color: black;}
+`
+
+const reveal =keyframes`
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+`
+/*************  Wrapper *************\
+\*************         *************/
+const Wrapper = styled.div`
+    background: #FFFFFF;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    width:100vw;
+    height:100vh;
+    transition: all .3s;
+    #eduicon:hover ~ #edu{
+        animation: ${slidein} 1.5s ease-in-out forwards;
+    }
+    #expicon:hover ~ #exp{
+        animation: ${slidein} 1.5s ease-in-out forwards;
+    }
+    #prjicon:hover ~ #prj{
+        animation: ${slidein} 1.5s ease-in-out forwards;
+    }
+    #ctcicon:hover ~ #ctc{
+        animation: ${slidein} 1.5s ease-in-out forwards;
+    }
+`
 
 const Title = styled.div`
     font: 100 5rem 'Montserrat', sans-serif;
@@ -112,56 +159,7 @@ const Text = styled.div`
     font-family: 'Montserrat', sans-serif;
     font-weight:300;
 `
-/*************  Wrapper *************\
-\*************         *************/
 
-const showup = keyframes`
-    0% {opacity:0;}
-    20% {opacity:1;}
-    80% {opacity:1;}
-    100% {opacity:0;}
-`
-
-const slidein = keyframes`
-    0% { margin-top:-25px; color: transparent;}
-    20% { margin-top:-25px; color: transparent;}
-    35% { margin-top:0px; color: black;}
-    100% { margin-top:0px; color: black;}
-`
-
-const reveal =keyframes`
-    0% {opacity:0;width:0px;}
-    20% {opacity:1;width:0px;}
-    30% {width:355px;}
-    80% {opacity:1;}
-    100% {opacity:0;width:355px;}
-`
-
-
-const Wrapper = styled.div`
-    background: #FFFFFF;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    display: flex;
-    width:100vw;
-    height:100vh;
-    transition: all .3s;
-    #eduicon:hover ~ #edu{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
-    #expicon:hover ~ #exp{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
-    #prjicon:hover ~ #prj{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
-    #ctcicon:hover ~ #ctc{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
-`
 
 
 export default class Home extends Component {
