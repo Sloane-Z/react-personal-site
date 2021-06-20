@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, {keyframes, css}  from 'styled-components';
-import Typed from "react-typed";
-
+import {FaUniversity} from 'react-icons/fa';
+import {AiFillCode} from 'react-icons/ai';
 const Wrapper = styled.div`
     background: #FFFFFF;
     width:100vw;
@@ -55,8 +55,6 @@ const Circle1 = styled.div`
     ${Circle};
     
 `
-
-
 const Circle2 = styled.div`
     ${Circle};
     animation-duration: 5s;
@@ -73,6 +71,57 @@ const Circle4 = styled.div`
     animation-duration: 3s;
 `
 
+const IconsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    z-index:2;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+`
+
+/* icons */
+const IconText = styled.div`
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s ease-in-out;
+  span{
+    margin: 0 3%;
+    font-size: 1.0rem;
+    font-weight: 100;
+    color:transparent;
+    transition: all 0.5s ease-out;
+  }
+  &:hover{
+      cursor:pointer;
+      span{
+          color:black;
+      }
+  }
+`
+const IconStyle = css`
+    color: white;
+    background: gray;
+    margin: 0 3px;
+    padding: 14px;
+    border-radius: 50%;
+    transition: all 150ms ease-in-out;
+    background: #3e4040;
+    color: #fff;
+    &:hover {
+        background: #fff;
+        color: #3e4040;
+    }
+`
+
+const IconEducation = styled(FaUniversity)`
+    ${IconStyle};
+`
+const IconProject = styled(AiFillCode)`
+    ${IconStyle};
+`
   
 export default class Home extends Component {
     render() {
@@ -87,6 +136,11 @@ export default class Home extends Component {
                     <Circle3/>
                     <Circle4/>
                 </CircleBkg>
+                <IconsWrapper>
+                    <IconText><IconEducation size='60'></IconEducation><span>Education</span></IconText>
+                    <IconText><IconProject size='60'></IconProject><span>Project</span></IconText>                      
+                </IconsWrapper>
+
             </Wrapper>  
         )
     }
