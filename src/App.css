@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+body {
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  overflow: hidden !important;
+  background: #fff;
+}

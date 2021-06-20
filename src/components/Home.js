@@ -29,37 +29,56 @@ const reveal =keyframes`
     80% {opacity:1;}
     100% {opacity:0;width:355px;}
 `
+
+/******  Font Style ******/
+
+const TitleFont = css`
+
+`
+const IconLinkFont = css`
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: 'Playfair Display', serif;
+`
+
 /*************  Wrapper *************\
 \*************         *************/
 const Wrapper = styled.div`
-    background: #FFFFFF;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
+    height: 100vh;
     display: flex;
-    width:100vw;
-    height:100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     transition: all .3s;
     #eduicon:hover ~ #edu{
         animation: ${slidein} 1.5s ease-in-out forwards;
+        ::before{
+            content:'Education';
+        }
     }
     #expicon:hover ~ #exp{
         animation: ${slidein} 1.5s ease-in-out forwards;
+        ::before{
+            content:'Experience';
+        }
     }
     #prjicon:hover ~ #prj{
         animation: ${slidein} 1.5s ease-in-out forwards;
+        ::before{
+            content:'Projects';
+        }
     }
     #ctcicon:hover ~ #ctc{
         animation: ${slidein} 1.5s ease-in-out forwards;
+        ::before{
+            content:'Contact';
+        }
     }
 `
 
 const Title = styled.div`
     font: 100 5rem 'Montserrat', sans-serif;
     text-transform: uppercase;
-    color: $black;
     max-width: 350px;
     margin: 0 auto;
     z-index: 2;
@@ -118,18 +137,24 @@ const IconsWrapper = styled(Container)`
     z-index:2;
     align-items: center;
     justify-content: center;
-    max-width: 350px;
+    max-width: 300px;
+    height: 4em;
+    margin: 0;
+    padding: 2%;
 `
 const IconText = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
   transition: all 2s ease-in-out;
+  &:hover {
+    cursor:pointer;
+  }
 `
 const IconStyle = css`
     color: white;
     background: gray;
-    padding: 14px;
+    padding: 10px;
     border-radius: 50%;
     transition: all 150ms ease-in-out;
     background: #3e4040;
@@ -155,9 +180,11 @@ const IconContact = styled(MdPermContactCalendar)`
 `
 const Text = styled.div`
     color: transparent;
-    margin-top:-25;
-    font-family: 'Montserrat', sans-serif;
-    font-weight:300;
+    margin-top:-200px;
+    ${IconLinkFont};
+    &:hover {
+        cursor:pointer;
+    }
 `
 
 
@@ -177,10 +204,10 @@ export default class Home extends Component {
                 </CircleBkg>
                 <IconsWrapper>
                     <Row >
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'eduicon'><IconEducation size='60' ></IconEducation></IconText><Text id='edu'>Education</Text></Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'expicon'><IconExperience size='60'></IconExperience></IconText><Text id='exp'>Experience</Text> </Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'prjicon'><IconProject size='60'></IconProject></IconText> <Text id='prj'>Project</Text></Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'ctcicon'><IconContact size='60'></IconContact></IconText> <Text id='ctc'>Contact</Text></Col>                                                                                 
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'eduicon'><IconEducation size='50' ></IconEducation></IconText><Text id='edu'> </Text></Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'expicon'><IconExperience size='50'></IconExperience></IconText><Text id='exp'> </Text> </Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'prjicon'><IconProject size='50'></IconProject></IconText> <Text id='prj'> </Text></Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'ctcicon'><IconContact size='50'></IconContact></IconText> <Text id='ctc'> </Text></Col>                                                                                 
                     </Row>
               
                 </IconsWrapper>
