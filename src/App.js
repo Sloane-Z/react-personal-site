@@ -15,11 +15,23 @@ export default function App() {
   return (
     <>
     <Switch>
-      <Route exact path='/'><Home></Home> </Route>
-      <Route exact path='/Education' component={Education}></Route>
-      <Route exact path='/Experience' component={Experience}></Route>
-      <Route exact path='/Project' component={Project}></Route>
-      <Route exact path='/Contact' component={Contact}></Route>
+      <Route exact path='/'><Home/></Route>
+      <Route exact path='/Education'>
+        <Navbar></Navbar>
+        <Education/>
+      </Route>
+      <Route exact path='/Experience'>
+        <Navbar></Navbar>
+        <Experience/>
+      </Route>
+      <Route exact path='/Project'>
+        <Navbar></Navbar>
+        <Project/>
+      </Route>
+      <Route exact path='/Contact'>
+        <Navbar></Navbar>
+        <Contact/>
+      </Route>
       <Redirect to="/" />
     </Switch>
     </>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled, {keyframes, css}  from 'styled-components';
 import { Container, Col, Row } from 'react-bootstrap';
 
@@ -29,7 +30,50 @@ const reveal =keyframes`
     80% {opacity:1;}
     100% {opacity:0;width:355px;}
 `
-
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+`
+const shrink2 = keyframes`
+  25% {
+    width: 340px;
+    height: 320px;
+  }
+  50% {
+    width: 300px;
+    height: 280px;
+  }
+  75% {
+    width: 280px;
+    height: 260px;
+  }
+  100% {
+    width: 260px;
+    height: 230px;
+  }
+`
+const shrink = keyframes`
+  25% {
+    width: 300px;
+    height: 280px;
+  }
+  50% {
+    width: 200px;
+    height: 180px;
+  }
+  75% {
+    width: 100px;
+    height: 80px;
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+  }
+`
 /******  Font Style ******/
 
 const TitleFont = css`
@@ -50,6 +94,7 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     transition: all .3s;
+
     #eduicon:hover ~ #edu{
         animation: ${slidein} 1.5s ease-in-out forwards;
         ::before{
@@ -91,15 +136,10 @@ const CircleBkg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `
-const rotate = keyframes`
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-`
+
+
 const Circle = css`
   opacity: 1;
   position: absolute;
@@ -109,26 +149,34 @@ const Circle = css`
   border-radius: 43%;
   animation: ${rotate}  11s infinite linear;
   background: #99c6c6;
+
+
 `
 
 const Circle1 = styled.div`
     ${Circle};
-    
+    animation:  ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s,
+    ${rotate}  11s infinite linear;
 `
 const Circle2 = styled.div`
     ${Circle};
     animation-duration: 5s;
+    animation: ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s, 
+    ${rotate}  11s infinite linear ;
 `
 
 const Circle3 = styled.div`
     ${Circle};
     animation-duration: 9s;
-
+    animation: ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s,
+    ${rotate}  11s infinite linear;
 `
 
 const Circle4 = styled.div`
     ${Circle};
     animation-duration: 3s;
+    animation: ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s,
+    ${rotate}  11s infinite linear;
 `
 
 
@@ -190,24 +238,55 @@ const Text = styled.div`
 
 
 export default class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          selectedPage :'',
+          animEnd:false,
+        };
+      }
+    
+    componentDidMount() {
+    }
+    componentDidUpdate() {
+        document.title = `You clicked ${this.state.selectedPage}`;
+        console.log('',this.state.selectedPage);
+        if (this.state.animEnd){
+
+        }
+    }
+
+    handleClick(event, link){        
+        this.setState({selectedPage:link});
+        event.preventDefault();
+        setTimeout(() => 2000);
+    }
+
     render() {
         return (
             <Wrapper>
                 <Title>
                     Sloane Zhang
                 </Title>
-                <CircleBkg>
-                    <Circle1/>
-                    <Circle2/>
-                    <Circle3/>
-                    <Circle4/>
+                <CircleBkg selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} >
+                    <Circle1 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
+                    <Circle2 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
+                    <Circle3 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
+                    <Circle4 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
                 </CircleBkg>
                 <IconsWrapper>
                     <Row >
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'eduicon'><IconEducation size='50' ></IconEducation></IconText><Text id='edu'> </Text></Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'expicon'><IconExperience size='50'></IconExperience></IconText><Text id='exp'> </Text> </Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'prjicon'><IconProject size='50'></IconProject></IconText> <Text id='prj'> </Text></Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><IconText id = 'ctcicon'><IconContact size='50'></IconContact></IconText> <Text id='ctc'> </Text></Col>                                                                                 
+                        <Col xs={3} sm={3} md={3} lg={3}>
+                            <Link to = '/Education' onClick = {(e)=>this.handleClick(e, 'Education')} style={{ textDecoration: 'none' }} >
+                                <IconText id = 'eduicon'>
+                                    <IconEducation size='50'/>
+                                </IconText>
+                                <Text id='edu'/>
+                            </Link>
+                        </Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><Link to ='/Experience' style={{ textDecoration: 'none' }}><IconText id = 'expicon'><IconExperience size='50'></IconExperience></IconText><Text id='exp'> </Text></Link> </Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><Link to = '/Project' style={{ textDecoration: 'none' }}><IconText id = 'prjicon'><IconProject size='50'></IconProject></IconText> <Text id='prj'> </Text></Link></Col>
+                        <Col xs={3} sm={3} md={3} lg={3}><Link to ='/Contact'  style={{ textDecoration: 'none' }}><IconText id = 'ctcicon'><IconContact size='50'></IconContact></IconText> <Text id='ctc'> </Text></Link></Col>                                                                                 
                     </Row>
               
                 </IconsWrapper>
