@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {
     TransitionGroup,
     CSSTransition
@@ -44,12 +44,20 @@ const rotate = keyframes`
     }
 `
 const shrink = keyframes`
-
   100% {
     width: 0px;
     height: 0px;
   }
 `
+
+const CircleLoopAnim = css`
+  animation: ${rotate} 11s linear infinite ;
+`
+
+const CircleExitAnim = css`
+  animation: ${shrink} 1s linear forwards;
+`
+
 /******  Font Style ******/
 
 const TitleFont = css`
@@ -106,13 +114,6 @@ const Title = styled.div`
     color: #fff;
 `
 /*********   Circle  **********/
-const CircleLoopAnim = css`
-  animation: ${rotate} 11s linear infinite ;
-`
-
-const CircleExitAnim = css`
-  animation: ${shrink} 1s linear forwards;
-`
 
 const Circle = css`
   opacity: 1;
@@ -213,7 +214,7 @@ const Text = styled.div`
 
 
 
-export default class Home extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -228,8 +229,12 @@ export default class Home extends Component {
 
     }
 
-    handleClick(){        
+    handleClick(e, link){        
         this.setState({isClicked:true});
+        e.preventDefault();
+        setTimeout(() => {
+            this.props.history.push(link)
+        },1000)
     }
 
     animTransition(){
@@ -251,19 +256,43 @@ export default class Home extends Component {
                 <IconsWrapper>
                     <Row >
                         <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link onClick = {()=>this.handleClick()} style={{ textDecoration: 'none' }} >
+                            <Link to='/Education' onClick = {(e,link)=>this.handleClick(e, '/Education')} style={{ textDecoration: 'none' }} >
                                 <IconText id = 'eduicon'>
                                     <IconEducation size='50'/>
                                 </IconText>
                                 <Text id='edu'/>
                             </Link>
                         </Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><Link to ='/Experience' style={{ textDecoration: 'none' }}><IconText id = 'expicon'><IconExperience size='50'></IconExperience></IconText><Text id='exp'> </Text></Link> </Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><Link to = '/Project' style={{ textDecoration: 'none' }}><IconText id = 'prjicon'><IconProject size='50'></IconProject></IconText> <Text id='prj'> </Text></Link></Col>
-                        <Col xs={3} sm={3} md={3} lg={3}><Link to ='/Contact'  style={{ textDecoration: 'none' }}><IconText id = 'ctcicon'><IconContact size='50'></IconContact></IconText> <Text id='ctc'> </Text></Link></Col>                                                                                 
+
+                        <Col xs={3} sm={3} md={3} lg={3}>
+                            <Link to ='/Experience' onClick = {(e,link)=>this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
+                                <IconText id = 'expicon'>
+                                    <IconExperience size='50'/>
+                                </IconText>
+                                <Text id='exp'/>
+                            </Link> 
+                        </Col>
+
+                        <Col xs={3} sm={3} md={3} lg={3}>
+                            <Link to = '/Project' onClick = {(e,link)=>this.handleClick(e, '/Project')} style={{ textDecoration: 'none' }}>
+                                <IconText id = 'prjicon'>
+                                    <IconProject size='50'/>
+                                </IconText>
+                                <Text id='prj'></Text>
+                            </Link>
+                        </Col>
+                        <Col xs={3} sm={3} md={3} lg={3}>
+                            <Link to ='/Contact' onClick = {(e,link)=>this.handleClick(e, '/Contact')} style={{ textDecoration: 'none' }}>
+                                <IconText id = 'ctcicon'>
+                                    <IconContact size='50'/>
+                                </IconText>
+                            <Text id='ctc'/>
+                            </Link>
+                        </Col>                                                                                 
                     </Row>     
                 </IconsWrapper>
             </Wrapper>  
         )
     }
 }
+export default withRouter(Home);

@@ -15,18 +15,39 @@ import './App.css';
 
 
 export default function App() {
-  const [animEnd, setAnimEnd] = useState(false);
-  function HomePage(){
-    if (!animEnd){
-      return <Home/>;
-    }
-    else{
-
-    }
-  }
   
   return (
-    <HomePage animEnd={animEnd} setAnimEnd={setAnimEnd}/>
+    <>
+    <Switch>
+
+      <Route exact path ='/'>
+        <Home/>
+      </Route>
+
+      <Route exact path = '/Education'>
+        <Navbar/>
+        <Education/>
+      </Route>
+
+      <Route exact path = '/Experience'>
+        <Navbar/>
+        <Experience/>
+      </Route>
+
+      <Route exact path = '/Project'>
+        <Navbar/>
+        <Project/>
+      </Route>
+
+      <Route exact path = '/Contact'>
+        <Navbar/>
+        <Contact/>
+      </Route>
+
+    </Switch>
+     
+    </>
+    
 
   );
 }
