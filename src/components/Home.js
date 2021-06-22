@@ -106,7 +106,13 @@ const Title = styled.div`
     color: #fff;
 `
 /*********   Circle  **********/
+const CircleLoopAnim = css`
+  animation: ${rotate} 11s linear infinite ;
+`
 
+const CircleExitAnim = css`
+  animation: ${shrink} 1s linear forwards;
+`
 
 const Circle = css`
   opacity: 1;
@@ -116,7 +122,6 @@ const Circle = css`
   transform-origin: 50% 48%;
   border-radius: 43%;
   background: #99c6c6;
-
 `
 const CircleBkg = styled.div`
   height: 100vh;
@@ -124,52 +129,32 @@ const CircleBkg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation-name: ${props => props.currentAnim};
-  animation-iteration-count: ${props => props.animCount};
-  animation-timing-function: ${props => props.animTF};
+  ${props=>props.anim};
 `
 
 const Circle1 = styled.div`
     ${Circle};
-    animation-name: ${props => props.currentAnim};
-    animation-duration :${props => props.animDuration[0]} ;
-    animation-iteration-count: ${props => props.animCount};
-    animation-fill-mode: ${props => props.animFM};
-    animation-timing-function: ${props => props.animTF};
+    ${props=>props.anim};
 `
 const Circle2 = styled.div`
     ${Circle};
-    animation-name: ${props => props.currentAnim};
-    animation-duration :${props => props.animDuration[1]} ;
-    animation-iteration-count: ${props => props.animCount};
-    animation-fill-mode: ${props => props.animFM};
-    animation-timing-function: ${props => props.animTF};
+    animation-duration: 5s;
+    ${props=>props.anim};
 `
 
 const Circle3 = styled.div`
     ${Circle};
-    animation-name: ${props => props.currentAnim};
-    animation-duration :${props => props.animDuration[2]} ;
-    animation-iteration-count: ${props => props.animCount};
-    animation-fill-mode: ${props => props.animFM};
-    animation-timing-function: ${props => props.animTF};
+    animation-duration: 9s;
+    ${props=>props.anim};
 `
 
 const Circle4 = styled.div`
     ${Circle};
-    animation-name: ${props => props.currentAnim};
-    animation-duration :${props => props.animDuration[3]} ;
-    animation-iteration-count: ${props => props.animCount};
-    animation-fill-mode: ${props => props.animFM};
-    animation-timing-function: ${props => props.animTF};
-`
-const CircleInitialAnim = css`
-  animation: ${rotate} 11s infinite linear;
+    animation-duration: 3s;
+    ${props=>props.anim};
 `
 
-const CircleExitAnim = css`
-  animation: ${shrink} 1s linear forwards ;
-`
+
 
 /********  Icons ************/
 const IconsWrapper = styled(Container)` 
@@ -232,31 +217,19 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          linkSelected:false,
-          selectedPage :'',
-          animEnd:false,
-          currentAnim:rotate,
-          animDuration:['11s','5s','9s','3s'],
-          animCount:'infinite',
-          animFM:'initial',
-          animTF:'linear'
+            isClicked:false,
         };
       }
     
     componentDidMount() {
-        console.log('',this.state.selectedPage);
+
     }
     componentDidUpdate() {
-        console.log('',this.state.selectedPage);
+
     }
 
     handleClick(){        
-        this.setState({linkSelected:true});
-        this.setState({currentAnim:shrink});
-        this.setState({animDuration:['0.5s','0.5s','0.5s','0.5s']});
-        this.setState({animCount:'1'});
-        this.setState({animFM:'forwards'});
-        this.setState({animTF:'linear'});
+        this.setState({isClicked:true});
     }
 
     animTransition(){
@@ -266,15 +239,14 @@ export default class Home extends Component {
     render() {
         return (
             <Wrapper>
-
                 <Title>
                     Sloane Zhang
                 </Title>
-                <CircleBkg  currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}>
-                    <Circle1 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
-                    <Circle2 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
-                    <Circle3 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
-                    <Circle4 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
+                <CircleBkg anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}>
+                    <Circle1 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
+                    <Circle2 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
+                    <Circle3 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
+                    <Circle4 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
                 </CircleBkg>
                 <IconsWrapper>
                     <Row >
