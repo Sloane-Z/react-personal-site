@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {
+    TransitionGroup,
+    CSSTransition
+  } from "react-transition-group";
+
 import styled, {keyframes, css}  from 'styled-components';
 import { Container, Col, Row } from 'react-bootstrap';
 
@@ -155,28 +160,23 @@ const Circle = css`
 
 const Circle1 = styled.div`
     ${Circle};
-    animation:  ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s,
-    ${rotate}  11s infinite linear;
+
+
 `
 const Circle2 = styled.div`
     ${Circle};
     animation-duration: 5s;
-    animation: ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s, 
-    ${rotate}  11s infinite linear ;
+
 `
 
 const Circle3 = styled.div`
     ${Circle};
     animation-duration: 9s;
-    animation: ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s,
-    ${rotate}  11s infinite linear;
 `
 
 const Circle4 = styled.div`
     ${Circle};
     animation-duration: 3s;
-    animation: ${ (props => props.selectedPage !=='')? shrink:'' } 0.5s linear forwards 2s,
-    ${rotate}  11s infinite linear;
 `
 
 
@@ -247,13 +247,10 @@ export default class Home extends Component {
       }
     
     componentDidMount() {
+        console.log('',this.state.selectedPage);
     }
     componentDidUpdate() {
-        document.title = `You clicked ${this.state.selectedPage}`;
         console.log('',this.state.selectedPage);
-        if (this.state.animEnd){
-
-        }
     }
 
     handleClick(event, link){        

@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState} from "react";
 import { Switch, Route, Redirect, useEffect } from "react-router";
   
 /* Components */
@@ -11,11 +11,25 @@ import Project from './components/Project';
 import Contact from './components/Contact';
 import './App.css';
 
+
+
+
 export default function App() {
+  function HomePage(props){
+    if (!animEnd){
+      return <Home/>;
+    }
+    else{
+      
+    }
+  }
+  const [animEnd, setAnimEnd] = useState(false);
   return (
     <>
     <Switch>
-      <Route exact path='/'><Home/></Route>
+      <Route exact path='/'>
+        <Home/>
+      </Route>
       <Route exact path='/Education'>
         <Navbar></Navbar>
         <Education/>
