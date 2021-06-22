@@ -43,37 +43,8 @@ const rotate = keyframes`
         transform: rotate(360deg);
     }
 `
-const shrink2 = keyframes`
-  25% {
-    width: 340px;
-    height: 320px;
-  }
-  50% {
-    width: 300px;
-    height: 280px;
-  }
-  75% {
-    width: 280px;
-    height: 260px;
-  }
-  100% {
-    width: 260px;
-    height: 230px;
-  }
-`
 const shrink = keyframes`
-  25% {
-    width: 300px;
-    height: 280px;
-  }
-  50% {
-    width: 200px;
-    height: 180px;
-  }
-  75% {
-    width: 100px;
-    height: 80px;
-  }
+
   100% {
     width: 0px;
     height: 0px;
@@ -135,14 +106,6 @@ const Title = styled.div`
     color: #fff;
 `
 /*********   Circle  **********/
-const CircleBkg = styled.div`
-  height: 100vh;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-`
 
 
 const Circle = css`
@@ -152,33 +115,61 @@ const Circle = css`
   height: 340px;
   transform-origin: 50% 48%;
   border-radius: 43%;
-  animation: ${rotate}  11s infinite linear;
   background: #99c6c6;
 
-
+`
+const CircleBkg = styled.div`
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: ${props => props.currentAnim};
+  animation-iteration-count: ${props => props.animCount};
+  animation-timing-function: ${props => props.animTF};
 `
 
 const Circle1 = styled.div`
     ${Circle};
-
-
+    animation-name: ${props => props.currentAnim};
+    animation-duration :${props => props.animDuration[0]} ;
+    animation-iteration-count: ${props => props.animCount};
+    animation-fill-mode: ${props => props.animFM};
+    animation-timing-function: ${props => props.animTF};
 `
 const Circle2 = styled.div`
     ${Circle};
-    animation-duration: 5s;
-
+    animation-name: ${props => props.currentAnim};
+    animation-duration :${props => props.animDuration[1]} ;
+    animation-iteration-count: ${props => props.animCount};
+    animation-fill-mode: ${props => props.animFM};
+    animation-timing-function: ${props => props.animTF};
 `
 
 const Circle3 = styled.div`
     ${Circle};
-    animation-duration: 9s;
+    animation-name: ${props => props.currentAnim};
+    animation-duration :${props => props.animDuration[2]} ;
+    animation-iteration-count: ${props => props.animCount};
+    animation-fill-mode: ${props => props.animFM};
+    animation-timing-function: ${props => props.animTF};
 `
 
 const Circle4 = styled.div`
     ${Circle};
-    animation-duration: 3s;
+    animation-name: ${props => props.currentAnim};
+    animation-duration :${props => props.animDuration[3]} ;
+    animation-iteration-count: ${props => props.animCount};
+    animation-fill-mode: ${props => props.animFM};
+    animation-timing-function: ${props => props.animTF};
+`
+const CircleInitialAnim = css`
+  animation: ${rotate} 11s infinite linear;
 `
 
+const CircleExitAnim = css`
+  animation: ${shrink} 1s linear forwards ;
+`
 
 /********  Icons ************/
 const IconsWrapper = styled(Container)` 
@@ -241,8 +232,14 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          linkSelected:false,
           selectedPage :'',
           animEnd:false,
+          currentAnim:rotate,
+          animDuration:['11s','5s','9s','3s'],
+          animCount:'infinite',
+          animFM:'initial',
+          animTF:'linear'
         };
       }
     
@@ -253,28 +250,36 @@ export default class Home extends Component {
         console.log('',this.state.selectedPage);
     }
 
-    handleClick(event, link){        
-        this.setState({selectedPage:link});
-        event.preventDefault();
-        setTimeout(() => 2000);
+    handleClick(){        
+        this.setState({linkSelected:true});
+        this.setState({currentAnim:shrink});
+        this.setState({animDuration:['0.5s','0.5s','0.5s','0.5s']});
+        this.setState({animCount:'1'});
+        this.setState({animFM:'forwards'});
+        this.setState({animTF:'linear'});
+    }
+
+    animTransition(){
+        
     }
 
     render() {
         return (
             <Wrapper>
+
                 <Title>
                     Sloane Zhang
                 </Title>
-                <CircleBkg selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} >
-                    <Circle1 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
-                    <Circle2 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
-                    <Circle3 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
-                    <Circle4 selectedPage={this.state.selectedPage} onAnimationEnd={()=>this.setState({animEnd:true})} />
+                <CircleBkg  currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}>
+                    <Circle1 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
+                    <Circle2 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
+                    <Circle3 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
+                    <Circle4 currentAnim={this.state.currentAnim} animDuration={this.state.animDuration} animCount={this.state.animCount} animFM = {this.state.animFM} animTF={this.state.animTF}/>
                 </CircleBkg>
                 <IconsWrapper>
                     <Row >
                         <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to = '/Education' onClick = {(e)=>this.handleClick(e, 'Education')} style={{ textDecoration: 'none' }} >
+                            <Link onClick = {()=>this.handleClick()} style={{ textDecoration: 'none' }} >
                                 <IconText id = 'eduicon'>
                                     <IconEducation size='50'/>
                                 </IconText>
@@ -284,10 +289,8 @@ export default class Home extends Component {
                         <Col xs={3} sm={3} md={3} lg={3}><Link to ='/Experience' style={{ textDecoration: 'none' }}><IconText id = 'expicon'><IconExperience size='50'></IconExperience></IconText><Text id='exp'> </Text></Link> </Col>
                         <Col xs={3} sm={3} md={3} lg={3}><Link to = '/Project' style={{ textDecoration: 'none' }}><IconText id = 'prjicon'><IconProject size='50'></IconProject></IconText> <Text id='prj'> </Text></Link></Col>
                         <Col xs={3} sm={3} md={3} lg={3}><Link to ='/Contact'  style={{ textDecoration: 'none' }}><IconText id = 'ctcicon'><IconContact size='50'></IconContact></IconText> <Text id='ctc'> </Text></Link></Col>                                                                                 
-                    </Row>
-              
+                    </Row>     
                 </IconsWrapper>
-
             </Wrapper>  
         )
     }
