@@ -302,14 +302,14 @@ export default class Block extends React.Component {
     this.state.left.map((item, index) => {
       var marginMult = parseInt( (item).current.getAttribute("data-helper"), 10 ) + _page - 1;
       (item).current.getAttribute("style", "margin-top: "+ marginMult * 100 +"vh");
-      return 0;
+
     });
 
     
     this.state.right.map((item, index) => {
       var marginMult = parseInt((item).current.getAttribute("data-helper"), 10) - _page + 1;
       (item).current.getAttribute("style", "margin-top: "+ marginMult * 100 +"vh");
-      return 0;
+
     });
     
     setTimeout(()=> {
@@ -407,14 +407,13 @@ export default class Block extends React.Component {
             <li data-page="4">Page 4</li>
           </ul>
           <ul className="page-dots">
-            <li class="active" data-page="1">•</li>
+            <li className="active" data-page="1">•</li>
             <li data-page="2">•</li>
             <li data-page="3">•</li>
             <li data-page="4">•</li>
           </ul>
         </Pagination>
       </Scene>
-      <CheckOut>Check out my other <a href="https://codepen.io/suez/public/" target="_blank">pens</a></CheckOut>      
     </div>
     )
   }
