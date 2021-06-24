@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {
-    TransitionGroup,
-    CSSTransition
-  } from "react-transition-group";
 
 import styled, {keyframes, css}  from 'styled-components';
 import { Container, Col, Row } from 'react-bootstrap';
@@ -220,7 +216,7 @@ class Home extends Component {
         this.state = {
             isClicked:false,
         };
-      }
+    }
     
     componentDidMount() {
 
