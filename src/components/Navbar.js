@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const StyledNavbar = styled(Navbar)`
     justify-content: center !important;
-
 `
 const StyledContainer = styled(Container)`
     align-items: center !important;                   /*Vertical*/
@@ -17,10 +16,18 @@ const StyledContainer = styled(Container)`
 
 const Brand = styled(Navbar.Brand)`
     font-family: 'Great Vibes', cursive;
+    
     font-size: 2rem;
     justify-content: center !important; 
     align-items: center !important;
     text-align: center !important;
+
+    font-family: 'Quattrocento Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    white-space: nowrap;
+    letter-spacing: -0.03em;
 `
 const StyledNav = styled(Nav)`
     .nav-link{
@@ -29,7 +36,10 @@ const StyledNav = styled(Nav)`
     .nav-link:last-of-type{
         border-right: none;
     }
+    text-transform: uppercase;
+    font-family: 'Quattrocento Sans', sans-serif;
 
+    
 `
 const StyledNavDropdown = styled(NavDropdown)`
 `
@@ -43,7 +53,7 @@ const NavbarCol = styled(Col)`
 export default class navbar extends Component {
     render() {
         return (
-            <StyledNavbar bg="light" expand="lg" fixed='top'>
+            <StyledNavbar expand="lg" fixed='top'>
             <StyledContainer>
                 <Row md={12} lg={12} sm={12}>
                     <BrandCol md={12} lg={12} sm={12}><Brand href="#home">Sloane Zhang</Brand></BrandCol>                      

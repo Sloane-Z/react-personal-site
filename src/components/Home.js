@@ -69,6 +69,7 @@ const IconLinkFont = css`
 \*************         *************/
 const Wrapper = styled.div`
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -208,6 +209,41 @@ const Text = styled.div`
     }
 `
 
+const Square = styled.div`
+  background-color: white !important;
+  height: 50vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  border-style:groove;
+  border-color: black;
+
+  /*** Font ***/
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: -0.03em;
+`
+
+const SqaureContainer = styled(Container)`
+    transition: all .3s;
+    height: 100%;
+    z-index: -1;    
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding:0;
+    .row{
+        --bs-gutter-x: none;
+        .col{
+            padding:0;
+        }
+    }
+`
 
 
 class Home extends Component {
@@ -240,6 +276,17 @@ class Home extends Component {
     render() {
         return (
             <Wrapper>
+                <SqaureContainer fluid vh-100 d-flex flex-row>
+                    <Row >
+                        <Col noGutters={true}w-100 xs={6} sm={6} md={6} lg={6}><Square>Education</Square></Col>
+                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}><Square>Experience</Square></Col>
+                    </Row>
+                    <Row>
+                        <Col noGutters={true}xs={6} sm={6} md={6} lg={6}><Square>Project</Square></Col>
+                        <Col  noGutters={true} xs={6} sm={6} md={6} lg={6}><Square>Contact</Square></Col>
+                    </Row>
+                </SqaureContainer>
+
                 <Title>
                     Sloane Zhang
                 </Title>

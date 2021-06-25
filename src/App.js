@@ -25,7 +25,7 @@ export default function App() {
       </Route>
 
       <Route exact path = '/Education'>
-
+        <Navbar></Navbar>
         <Education/>
       </Route>
 
