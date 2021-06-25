@@ -109,6 +109,7 @@ const Title = styled.div`
     margin: 0 auto;
     z-index: 2;
     color: #fff;
+    color:#99c6c6;
 `
 /*********   Circle  **********/
 
@@ -120,6 +121,7 @@ const Circle = css`
   transform-origin: 50% 48%;
   border-radius: 43%;
   background: #99c6c6;
+  background: white;
 `
 const CircleBkg = styled.div`
   height: 100vh;
@@ -210,15 +212,17 @@ const Text = styled.div`
 `
 
 const Square = styled.div`
-  background-color: white !important;
+  background-color: #99c6c6 !important;
   height: 50vh;
   text-align: center;
   justify-content: center;
   align-items: center;
   justify-items: center;
   display: flex;
-  border-style:groove;
-  border-color: black;
+
+  /** Border */
+  border-style: solid;
+  border-color: white;
 
   /*** Font ***/
   font-family: 'Quattrocento Sans', sans-serif;
@@ -228,10 +232,17 @@ const Square = styled.div`
   letter-spacing: -0.03em;
 `
 
+const InnerSquare = styled.div`
+    padding:20%;
+    &:hover {
+        cursor:pointer;
+    }
+`
+
 const SqaureContainer = styled(Container)`
     transition: all .3s;
     height: 100%;
-    z-index: -1;    
+   
     position: absolute;
     text-align: center;
     justify-content: center;
@@ -278,12 +289,12 @@ class Home extends Component {
             <Wrapper>
                 <SqaureContainer fluid vh-100 d-flex flex-row>
                     <Row >
-                        <Col noGutters={true}w-100 xs={6} sm={6} md={6} lg={6}><Square>Education</Square></Col>
-                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}><Square>Experience</Square></Col>
+                        <Col noGutters={true}w-100 xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Education</InnerSquare></Square></Col>
+                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Experience</InnerSquare></Square></Col>
                     </Row>
                     <Row>
-                        <Col noGutters={true}xs={6} sm={6} md={6} lg={6}><Square>Project</Square></Col>
-                        <Col  noGutters={true} xs={6} sm={6} md={6} lg={6}><Square>Contact</Square></Col>
+                        <Col noGutters={true}xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Project</InnerSquare></Square></Col>
+                        <Col  noGutters={true} xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Contact</InnerSquare></Square></Col>
                     </Row>
                 </SqaureContainer>
 
