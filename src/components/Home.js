@@ -1,43 +1,51 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import styled, {keyframes, css}  from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Container, Col, Row } from 'react-bootstrap';
 
-import {FaUniversity} from 'react-icons/fa';
-import {AiFillCode} from 'react-icons/ai';
-import {MdWork} from 'react-icons/md';
-import {MdPermContactCalendar} from 'react-icons/md';
+import { FaUniversity } from 'react-icons/fa';
+import { AiFillCode } from 'react-icons/ai';
+import { MdWork } from 'react-icons/md';
+import { MdPermContactCalendar } from 'react-icons/md';
 
-/***   Animation  */
+/***  keyframes *****/
 const showup = keyframes`
-    0% {opacity:0;}
-    20% {opacity:1;}
-    80% {opacity:1;}
-    100% {opacity:0;}
+	0% {opacity:0;}
+	20% {opacity:1;}
+	80% {opacity:1;}
+	100% {opacity:0;}
+`
+const reveal = keyframes`
+	0% {opacity:0;width:0px;}
+	20% {opacity:1;width:0px;}
+	30% {width:355px;}
+	80% {opacity:1;}
+	100% {opacity:0;width:355px;}
 `
 
 const slidein = keyframes`
-    0% { margin-top:-25px; color: transparent;}
-    20% { margin-top:-25px; color: transparent;}
-    35% { margin-top:0px; color: black;}
-    100% { margin-top:0px; color: black;}
+	0% { margin-top:-25px; color: transparent;}
+	20% { margin-top:-25px; color: transparent;}
+	35% { margin-top:0px; color: black;}
+	100% { margin-top:0px; color: black;}
 `
 
-const reveal =keyframes`
-    0% {opacity:0;width:0px;}
-    20% {opacity:1;width:0px;}
-    30% {width:355px;}
-    80% {opacity:1;}
-    100% {opacity:0;width:355px;}
+const fadeOut = keyframes`
+	0%{opacity:1;}
+	20%{opacity:0.5;}
+	50%{opacity:0.3;}
+	80%{opacity:0;}
+	100%{opacity:0;}
 `
+
 const rotate = keyframes`
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+	from {
+			transform: rotate(0deg);
+	}
+	to {
+			transform: rotate(360deg);
+	}
 `
 const shrink = keyframes`
   100% {
@@ -45,13 +53,20 @@ const shrink = keyframes`
     height: 0px;
   }
 `
-
+/***   Animation  ******/
 const CircleLoopAnim = css`
   animation: ${rotate} 11s linear infinite ;
 `
 
 const CircleExitAnim = css`
   animation: ${shrink} 1s linear forwards;
+`
+
+const Static = css`
+
+`
+const FadeOutAnim = css`
+	animation: ${fadeOut} 1s linear forwards;
 `
 
 /******  Font Style ******/
@@ -127,35 +142,35 @@ const CircleBkg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${props=>props.anim};
+  ${props => props.anim};
 `
 
 const Circle1 = styled.div`
     ${Circle};
-    ${props=>props.anim};
+    ${props => props.anim};
 `
 const Circle2 = styled.div`
     ${Circle};
     animation-duration: 5s;
-    ${props=>props.anim};
+    ${props => props.anim};
 `
 
 const Circle3 = styled.div`
     ${Circle};
     animation-duration: 9s;
-    ${props=>props.anim};
+    ${props => props.anim};
 `
 
 const Circle4 = styled.div`
     ${Circle};
     animation-duration: 3s;
-    ${props=>props.anim};
+    ${props => props.anim};
 `
 
 
 
 /********  Icons ************/
-const IconsWrapper = styled(Container)` 
+const IconsWrapper = styled.div` 
     z-index:2;
     align-items: center;
     justify-content: center;
@@ -163,6 +178,7 @@ const IconsWrapper = styled(Container)`
     height: 4em;
     margin: 0;
     padding: 2%;
+		${props => props.anim};
 `
 const IconText = styled.div`
   text-align: center;
@@ -172,41 +188,44 @@ const IconText = styled.div`
   &:hover {
     cursor:pointer;
   }
+	
 `
 const IconStyle = css`
-    color: white;
-    background: gray;
-    padding: 10px;
-    border-radius: 50%;
-    transition: all 150ms ease-in-out;
-    background: #3e4040;
-    color: #fff;
-    &:hover {
-        cursor:pointer;
-        background: #fff;
-        color: #3e4040;
-    }
+	color: white;
+	background: gray;
+	padding: 10px;
+	border-radius: 50%;
+	transition: all 150ms ease-in-out;
+	background: #3e4040;
+	color: #fff;
+	&:hover {
+			cursor:pointer;
+			background: #fff;
+			color: #3e4040;
+	}
+	
 `
 
 const IconEducation = styled(FaUniversity)`
-    ${IconStyle};
+	${IconStyle};
+
 `
 const IconExperience = styled(MdWork)`
-    ${IconStyle};
+	${IconStyle};
 `
 const IconProject = styled(AiFillCode)`
-    ${IconStyle};
+	${IconStyle};
 `
 const IconContact = styled(MdPermContactCalendar)`
-    ${IconStyle};
+	${IconStyle};
 `
 const Text = styled.div`
-    color: transparent;
-    margin-top:-200px;
-    ${IconLinkFont};
-    &:hover {
-        cursor:pointer;
-    }
+	color: transparent;
+	margin-top:-200px;
+	${IconLinkFont};
+	&:hover {
+			cursor:pointer;
+	}
 `
 
 const Square = styled.div`
@@ -229,113 +248,103 @@ const Square = styled.div`
 `
 
 const SqaureContainer = styled(Container)`
-    transition: all .3s;
-    height: 100%;
-    z-index: -1;    
-    position: absolute;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding:0;
-    .row{
-        --bs-gutter-x: none;
-        .col{
-            padding:0;
-        }
-    }
+	transition: all .3s;
+	height: 100%;
+	z-index: -1;    
+	position: absolute;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	padding:0;
+	.row{
+			--bs-gutter-x: none;
+			.col{
+					padding:0;
+			}
+	}
 `
 
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isClicked:false,
-        };
-    }
-    
-    componentDidMount() {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isClicked: false,
+		};
+	}
 
-    }
-    componentDidUpdate() {
+	componentDidMount() {
 
-    }
+	}
+	componentDidUpdate() {
 
-    handleClick(e, link){        
-        this.setState({isClicked:true});
-        e.preventDefault();
-        setTimeout(() => {
-            this.props.history.push(link)
-        },1000)
-    }
+	}
 
-    animTransition(){
-        
-    }
+	handleClick(e, link) {
+		this.setState({ isClicked: true });
+		e.preventDefault();
+		setTimeout(() => {
+			this.props.history.push(link)
+		}, 1000)
+	}
 
-    render() {
-        return (
-            <Wrapper>
-                <SqaureContainer fluid vh-100 d-flex flex-row>
-                    <Row >
-                        <Col noGutters={true}w-100 xs={6} sm={6} md={6} lg={6}><Square>Education</Square></Col>
-                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}><Square>Experience</Square></Col>
-                    </Row>
-                    <Row>
-                        <Col noGutters={true}xs={6} sm={6} md={6} lg={6}><Square>Project</Square></Col>
-                        <Col  noGutters={true} xs={6} sm={6} md={6} lg={6}><Square>Contact</Square></Col>
-                    </Row>
-                </SqaureContainer>
+	animTransition() {
 
-                <Title>
-                    Sloane Zhang
-                </Title>
-                <CircleBkg anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}>
-                    <Circle1 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
-                    <Circle2 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
-                    <Circle3 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
-                    <Circle4 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
-                </CircleBkg>
-                <IconsWrapper>
-                    <Row >
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to='/Education' onClick = {(e,link)=>this.handleClick(e, '/Education')} style={{ textDecoration: 'none' }} >
-                                <IconText id = 'eduicon'>
-                                    <IconEducation size='50'/>
-                                </IconText>
-                                <Text id='edu'/>
-                            </Link>
-                        </Col>
+	}
 
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to ='/Experience' onClick = {(e,link)=>this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
-                                <IconText id = 'expicon'>
-                                    <IconExperience size='50'/>
-                                </IconText>
-                                <Text id='exp'/>
-                            </Link> 
-                        </Col>
+	render() {
+		return (
+			<Wrapper>
 
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to = '/Project' onClick = {(e,link)=>this.handleClick(e, '/Project')} style={{ textDecoration: 'none' }}>
-                                <IconText id = 'prjicon'>
-                                    <IconProject size='50'/>
-                                </IconText>
-                                <Text id='prj'></Text>
-                            </Link>
-                        </Col>
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to ='/Contact' onClick = {(e,link)=>this.handleClick(e, '/Contact')} style={{ textDecoration: 'none' }}>
-                                <IconText id = 'ctcicon'>
-                                    <IconContact size='50'/>
-                                </IconText>
-                            <Text id='ctc'/>
-                            </Link>
-                        </Col>                                                                                 
-                    </Row>     
-                </IconsWrapper>
-            </Wrapper>  
-        )
-    }
+				<Title>
+					Sloane Zhang
+				</Title>
+				<CircleBkg anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim}>
+					<Circle1 anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim} />
+					<Circle2 anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim} />
+					<Circle3 anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim} />
+					<Circle4 anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim} />
+				</CircleBkg>
+				<IconsWrapper anim={this.state.isClicked ? FadeOutAnim : Static}>
+					<Row >
+						<Col xs={3} sm={3} md={3} lg={3}>
+							<Link to='/Education'  onClick={(e, link) => this.handleClick(e, '/Education')} style={{ textDecoration: 'none' }} >
+								<IconText id='eduicon'  >
+									<IconEducation size='50' />
+								</IconText>
+								<Text id='edu' />
+							</Link>
+						</Col>
+
+						<Col xs={3} sm={3} md={3} lg={3}>
+							<Link to='/Experience' onClick={(e, link) => this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
+								<IconText id='expicon'>
+									<IconExperience size='50' />
+								</IconText>
+								<Text id='exp' />
+							</Link>
+						</Col>
+
+						<Col xs={3} sm={3} md={3} lg={3}>
+							<Link to='/Project' onClick={(e, link) => this.handleClick(e, '/Project')} style={{ textDecoration: 'none' }}>
+								<IconText id='prjicon'>
+									<IconProject size='50' />
+								</IconText>
+								<Text id='prj'></Text>
+							</Link>
+						</Col>
+						<Col xs={3} sm={3} md={3} lg={3}>
+							<Link to='/Contact' onClick={(e, link) => this.handleClick(e, '/Contact')} style={{ textDecoration: 'none' }}>
+								<IconText id='ctcicon'>
+									<IconContact size='50' />
+								</IconText>
+								<Text id='ctc' />
+							</Link>
+						</Col>
+					</Row>
+				</IconsWrapper>
+			</Wrapper>
+		)
+	}
 }
 export default withRouter(Home);

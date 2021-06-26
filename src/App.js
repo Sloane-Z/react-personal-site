@@ -24,23 +24,10 @@ export default function App() {
         <Home/>
       </Route>
 
-      <Route exact path = '/Education'>
-        <Navbar></Navbar>
-        <Education/>
-      </Route>
-
       <Route exact path = '/Experience'>
         <Navbar/>
         <Experience/>
-      </Route>
-
-      <Route exact path = '/Project'>
-        <Navbar/>
         <Project/>
-      </Route>
-
-      <Route exact path = '/Contact'>
-        <Navbar/>
         <Contact/>
       </Route>
 
