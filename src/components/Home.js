@@ -109,7 +109,8 @@ const Title = styled.div`
     margin: 0 auto;
     z-index: 2;
     color: #fff;
-    color:#99c6c6;
+    color: #99c6c6;
+    color: black;
 `
 /*********   Circle  **********/
 
@@ -212,7 +213,7 @@ const Text = styled.div`
 `
 
 const Square = styled.div`
-  background-color: #99c6c6 !important;
+  background-color: black !important;
   height: 50vh;
   text-align: center;
   justify-content: center;
@@ -225,18 +226,37 @@ const Square = styled.div`
   border-color: white;
 
   /*** Font ***/
-  font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   white-space: nowrap;
   letter-spacing: -0.03em;
+  font-family: 'Playfair Display', serif;
+  color: white;
+
+  transition: 1s ease-in-out; 
+  &:hover {
+    cursor:pointer;
+    transform:scale(1.3,1.3);
+  }
+`
+const EDSquare = styled(Square)`
+  background-image: url(https://images.unsplash.com/photo-1532012197267-da84d127e765?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80);
+  background-size: cover;
 `
 
-const InnerSquare = styled.div`
-    padding:20%;
-    &:hover {
-        cursor:pointer;
-    }
+const EXSquare = styled(Square)`
+  background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  background-size: cover;
+`
+
+const PRSquare = styled(Square)`
+  background-image: url(https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80);
+  background-size: cover;
+`
+
+const CTSquare = styled(Square)`
+  background-image: url(https://images.unsplash.com/photo-1512626120412-faf41adb4874?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  background-size: cover;
 `
 
 const SqaureContainer = styled(Container)`
@@ -254,6 +274,7 @@ const SqaureContainer = styled(Container)`
             padding:0;
         }
     }
+
 `
 
 
@@ -289,12 +310,27 @@ class Home extends Component {
             <Wrapper>
                 <SqaureContainer fluid vh-100 d-flex flex-row>
                     <Row >
-                        <Col noGutters={true}w-100 xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Education</InnerSquare></Square></Col>
-                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Experience</InnerSquare></Square></Col>
+                        <Col noGutters={true}w-100 xs={6} sm={6} md={6} lg={6}>
+                            <Link to='/Education' onClick = {(e,link)=>this.handleClick(e, '/Education')} style={{ textDecoration: 'none' }} >
+                                <EDSquare>Education</EDSquare>
+                            </Link></Col>
+                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}>
+                            <Link to ='/Experience' onClick = {(e,link)=>this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
+                                <EXSquare>Experience</EXSquare>
+                            </Link>
+                        </Col>
                     </Row>
                     <Row>
-                        <Col noGutters={true}xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Project</InnerSquare></Square></Col>
-                        <Col  noGutters={true} xs={6} sm={6} md={6} lg={6}><Square><InnerSquare>Contact</InnerSquare></Square></Col>
+                        <Col noGutters={true}xs={6} sm={6} md={6} lg={6}>
+                            <Link to ='/Project' onClick = {(e,link)=>this.handleClick(e, '/Project')} style={{ textDecoration: 'none' }}>
+                                <PRSquare>Project</PRSquare>
+                            </Link>
+                        </Col>
+                        <Col noGutters={true} xs={6} sm={6} md={6} lg={6}>
+                            <Link to ='/Experience' onClick = {(e,link)=>this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
+                                <CTSquare>Contact</CTSquare>
+                            </Link>
+                        </Col>
                     </Row>
                 </SqaureContainer>
 
@@ -307,44 +343,6 @@ class Home extends Component {
                     <Circle3 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
                     <Circle4 anim={this.state.isClicked? CircleExitAnim:CircleLoopAnim}/>
                 </CircleBkg>
-                <IconsWrapper>
-                    <Row >
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to='/Education' onClick = {(e,link)=>this.handleClick(e, '/Education')} style={{ textDecoration: 'none' }} >
-                                <IconText id = 'eduicon'>
-                                    <IconEducation size='50'/>
-                                </IconText>
-                                <Text id='edu'/>
-                            </Link>
-                        </Col>
-
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to ='/Experience' onClick = {(e,link)=>this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
-                                <IconText id = 'expicon'>
-                                    <IconExperience size='50'/>
-                                </IconText>
-                                <Text id='exp'/>
-                            </Link> 
-                        </Col>
-
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to = '/Project' onClick = {(e,link)=>this.handleClick(e, '/Project')} style={{ textDecoration: 'none' }}>
-                                <IconText id = 'prjicon'>
-                                    <IconProject size='50'/>
-                                </IconText>
-                                <Text id='prj'></Text>
-                            </Link>
-                        </Col>
-                        <Col xs={3} sm={3} md={3} lg={3}>
-                            <Link to ='/Contact' onClick = {(e,link)=>this.handleClick(e, '/Contact')} style={{ textDecoration: 'none' }}>
-                                <IconText id = 'ctcicon'>
-                                    <IconContact size='50'/>
-                                </IconText>
-                            <Text id='ctc'/>
-                            </Link>
-                        </Col>                                                                                 
-                    </Row>     
-                </IconsWrapper>
             </Wrapper>  
         )
     }
