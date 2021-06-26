@@ -52,7 +52,7 @@ const slideRightAnim = css`
 /*********** */
 const StyledNavbar = styled(Navbar)`
     justify-content: center !important;
-		${slideRightAnim};
+		${fadeInAnim};
 `
 const StyledContainer = styled(Container)`
     align-items: center !important;                   /*Vertical*/
@@ -76,9 +76,11 @@ const Brand = styled(Navbar.Brand)`
 	white-space: nowrap;
 	letter-spacing: -0.03em;
 	height: 60px; 
-	padding: 30px 10px 0 10px;
+	padding: 4px 10px 0 10px !important;
 	line-height: 0px;	
-
+  .nav-brand{
+		padding: 50px 10px 0 10px !important;
+	}
 `
 const StyledNav = styled(Nav)`
   /**
@@ -125,9 +127,13 @@ export default class navbar extends Component {
 			return (
 					<StyledNavbar expand="lg">
 					<StyledContainer>
+						
 							<Row md={12} lg={12} sm={12}>
-									<BrandCol md={12} lg={12} sm={12}><Brand href="#home">Sloane Zhang</Brand></BrandCol>                      
+									<BrandCol md={12} lg={12} sm={12}>
+										<Brand href="/">Sloane Zhang</Brand>
+									</BrandCol>                      
 							</Row>
+							
 							<Row md={12} lg={12} sm={12}>
 									<NavbarCol md={12} lg={12} sm={12}>
 											<StyledNavbar.Toggle aria-controls="basic-navbar-nav" />
