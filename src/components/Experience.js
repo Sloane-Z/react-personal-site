@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled, { keyframes, css } from 'styled-components';
 
+import workData from '../content/content';
+
 const Wrapper = styled.div`
 	text-align:left;
 	padding-left:10%;
@@ -30,23 +32,53 @@ const SubHeader = styled.h1`
 
 `
 
-const Content = styled.p`
+const SubTitle = styled.p`
   font-family: 'Quattrocento Sans', sans-serif;
-	font-size: 14px;
-	margin-bottom: 25px; 
+	font-size: 16px;
+	font-style: bold;
+	margin-bottom: 0px;
 `
 
+const Content = styled.p`
+  font-family: 'Quattrocento Sans', sans-serif;
+	font-size: 16px;
+	margin-bottom: 25px; 
+`
+const Responsibility = styled.p`
+  font-family: 'Quattrocento Sans', sans-serif;
+	font-size: 16px;
+	::before{
+		content:'{'\u2B24'}',
+	}
+	margin:0;
+`
 
 export default class Experience extends Component {
-    render() {
-        return (
-            <Wrapper>
-                <Header>Education</Header>
-								<SubHeader>Memorial University of Newfoundland </SubHeader>
-                <Content>Bachelor of Science in Computer Science (2018-current)</Content>
-								<SubHeader>Harbin Institute of Technology</SubHeader>
-                <Content>Bachelor of Science in Finance (2012-2016)</Content>
-            </Wrapper>
-        )
-    }
+	render() {
+		return (
+			<Wrapper>
+				<Header>Education</Header>
+				<SubHeader>Memorial University of Newfoundland </SubHeader>
+				<Content>Bachelor of Science in Computer Science (2018-current)</Content>
+				<SubHeader>Harbin Institute of Technology</SubHeader>
+				<Content>Bachelor of Science in Finance (2012-2016)</Content>
+
+				<Header>Work</Header>
+				{
+					workData.map((item, index)=>(
+						<>
+						<SubHeader>{item.company}</SubHeader>
+						<Content>{item.title} ({item.timeRange})</Content>
+						<SubTitle>{item.techStack ==='' ? '':(<strong>TechStack: </strong>)}{item.techStack}</SubTitle>
+						{
+							item.responsibility.map((item)=>(
+								<Responsibility>{item}</Responsibility>
+							))
+						}
+						</>
+					))
+				}
+			</Wrapper>
+		)
+	}
 }
