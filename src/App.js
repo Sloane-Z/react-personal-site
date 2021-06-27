@@ -23,8 +23,6 @@ export default function App() {
       <Route exact path = '/Experience'>
         <Navbar/>
         <Experience/>
-        <Project/>
-        <Contact/>
       </Route>
 
       <Route path='/Project'>

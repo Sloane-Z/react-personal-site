@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 	text-align:left;
 	padding-left:10%;
 	padding-right:10%;
-	padding-top: 60px;
+	padding-top: 20px;
 	padding-bottom: 20px; 
 	
 `
@@ -56,9 +56,11 @@ const Header = styled.h1`
 	font-weight: 400; 
 	font-size: 30px; 
 	display: inline-block;
+
+	padding-left: 0;
 	${slideRightAnim};
 	::after{
-	content: ''; 
+		content: ''; 
 		display: block; 
 		border-bottom: 1px solid #DFDFDF; 
 		padding-top: 3px;
@@ -69,22 +71,18 @@ const SubHeader = styled.h1`
 	font-family: 'Cardo', serif; 
 	font-size: 19px; 
 	line-height: 1.35em; 
-  margin-top: 25px;
-	padding-bottom: 10px;
+	padding-left: 0;
+	margin-top:10px;
+	text-align: left;
 `
 
-const SubTitle = styled.p`
-  font-family: 'Quattrocento Sans', sans-serif;
-	font-size: 16px;
-	font-style: bold;
-	margin-bottom: 0px;
-`
+
 
 const Content = styled.p`
   font-family: 'Quattrocento Sans', sans-serif;
 	font-size: 16px;
 	margin:0;
-
+	margin-bottom: 10px;
 `
 const Responsibility = styled.p`
   font-family: 'Quattrocento Sans', sans-serif;
@@ -94,6 +92,13 @@ const Responsibility = styled.p`
 	}
 	margin:0;
 	
+`
+
+const SubTitle = styled.p`
+	font-family: 'Quattrocento Sans', sans-serif;
+	font-size: 16px;
+	font-style: bold;
+	margin-bottom: 0px;
 `
 
 const ContentWrapper = styled.div`
@@ -108,38 +113,38 @@ export default class Experience extends Component {
 			<>
 			<Wrapper>
 				<Header>Education</Header>
-				<ContentWrapper>
-					<SubHeader>Memorial University of Newfoundland </SubHeader>
-					<Content>Bachelor of Science in Computer Science (Sep 2018 - current)</Content>
-					<SubHeader>Harbin Institute of Technology</SubHeader>
-					<Content>Bachelor of Economics in Finance (Aug 2012- Jul 2016)</Content>
-				</ContentWrapper>
+					<ContentWrapper>
+						<SubHeader>Memorial University of Newfoundland </SubHeader>
+						<Content>Bachelor of Science in Computer Science (Sep 2018 - current)</Content>
+						<SubHeader>Harbin Institute of Technology</SubHeader>
+						<Content>Bachelor of Economics in Finance (Aug 2012- Jul 2016)</Content>
+					</ContentWrapper>
 
-			</Wrapper>
-
-			<Wrapper>
 				<Header>Work</Header>
 				<ContentWrapper>
 					{
-						workData.map((item, index)=>(
-							<>
-							
-							<SubHeader>{item.company}</SubHeader>
-							<InfoWrapper>
-								<Content>{item.title} ({item.timeRange})</Content>
-								<Content>{item.location}</Content>
+							workData.map((item, index)=>(
+								<>
 								
-							</InfoWrapper>		
-							<SubTitle>{item.techStack ==='' ? '':(<strong>TechStack: </strong>)}{item.techStack}</SubTitle>		
-							{
-								item.responsibility.map((item)=>(
-									<Responsibility>{'\u2022'} {item}</Responsibility>
-								))
-							}
-							</>
-						))
-					}
+								<SubHeader>{item.company}</SubHeader>
+								
+								<InfoWrapper>
+									<Content>{item.title} ({item.timeRange})</Content>
+									<Content>{item.location}</Content>
+									
+								</InfoWrapper>		
+								<SubTitle>{item.techStack ==='' ? '':(<strong>TechStack: </strong>)}{item.techStack}</SubTitle>		
+								{
+									item.responsibility.map((item)=>(
+										<Responsibility>{'\u2022'} {item}</Responsibility>
+									))
+								}
+								</>
+							))
+						}
 				</ContentWrapper>
+
+
 
 			</Wrapper>
 			</>
