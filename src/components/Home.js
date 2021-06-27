@@ -84,43 +84,37 @@ const IconLinkFont = css`
 \*************         *************/
 const Wrapper = styled.div`
     height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     transition: all .3s;
 
+		position: relative;
+		box-sizing: border-box;
+		background-size: cover;
+		text-align: center;
+		overflow: hidden !important;
+
     #eduicon:hover ~ #edu{
         animation: ${slidein} 1.5s ease-in-out forwards;
-        ::before{
-            content:'Education';
-        }
     }
     #expicon:hover ~ #exp{
         animation: ${slidein} 1.5s ease-in-out forwards;
-        ::before{
-            content:'Experience';
-        }
     }
     #prjicon:hover ~ #prj{
         animation: ${slidein} 1.5s ease-in-out forwards;
-        ::before{
-            content:'Projects';
-        }
+
     }
     #ctcicon:hover ~ #ctc{
         animation: ${slidein} 1.5s ease-in-out forwards;
-        ::before{
-            content:'Contact';
-        }
     }
 `
 
 const Title = styled.div`
-    font: 100 5rem 'Montserrat', sans-serif;
+    font: 100 4rem 'Montserrat', sans-serif;
     text-transform: uppercase;
-    max-width: 350px;
+    max-width: 300px;
     margin: 0 auto;
     z-index: 2;
     color: #fff;
@@ -199,7 +193,6 @@ const IconStyle = css`
 	background: #3e4040;
 	color: #fff;
 	&:hover {
-			cursor:pointer;
 			background: #fff;
 			color: #3e4040;
 	}
@@ -227,7 +220,7 @@ const Text = styled.div`
 			cursor:pointer;
 	}
 `
-
+/*** BackUp *****/
 const Square = styled.div`
   background-color: white !important;
   height: 50vh;
@@ -307,38 +300,30 @@ class Home extends Component {
 				</CircleBkg>
 				<IconsWrapper anim={this.state.isClicked ? FadeOutAnim : Static}>
 					<Row >
-						<Col xs={3} sm={3} md={3} lg={3}>
-							<Link to='/Education'  onClick={(e, link) => this.handleClick(e, '/Education')} style={{ textDecoration: 'none' }} >
-								<IconText id='eduicon'  >
-									<IconEducation size='50' />
-								</IconText>
-								<Text id='edu' />
-							</Link>
-						</Col>
 
-						<Col xs={3} sm={3} md={3} lg={3}>
+						<Col xs={4} sm={4} md={4} lg={4}>
 							<Link to='/Experience' onClick={(e, link) => this.handleClick(e, '/Experience')} style={{ textDecoration: 'none' }}>
 								<IconText id='expicon'>
 									<IconExperience size='50' />
 								</IconText>
-								<Text id='exp' />
+								<Text id='exp'>Experience</Text>
 							</Link>
 						</Col>
 
-						<Col xs={3} sm={3} md={3} lg={3}>
+						<Col xs={4} sm={4} md={4} lg={4}>
 							<Link to='/Project' onClick={(e, link) => this.handleClick(e, '/Project')} style={{ textDecoration: 'none' }}>
 								<IconText id='prjicon'>
 									<IconProject size='50' />
 								</IconText>
-								<Text id='prj'></Text>
+								<Text id='prj'>Project</Text>
 							</Link>
 						</Col>
-						<Col xs={3} sm={3} md={3} lg={3}>
+						<Col xs={4} sm={4} md={4} lg={4}>
 							<Link to='/Contact' onClick={(e, link) => this.handleClick(e, '/Contact')} style={{ textDecoration: 'none' }}>
 								<IconText id='ctcicon'>
 									<IconContact size='50' />
 								</IconText>
-								<Text id='ctc' />
+								<Text id='ctc' >Contact</Text>
 							</Link>
 						</Col>
 					</Row>

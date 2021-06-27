@@ -51,14 +51,18 @@ const slideRightAnim = css`
 
 /*********** */
 const StyledNavbar = styled(Navbar)`
-    justify-content: center !important;
-		${fadeInAnim};
+	justify-content: center !important;
+	${fadeInAnim};
+  
 `
 const StyledContainer = styled(Container)`
-    align-items: center !important;                   /*Vertical*/
-    justify-content: center !important;               /*horizontal*/
-    text-align: center !important;
-    display: grid !important;              /* Keep the Title on the top*/  
+	align-items: center !important;                   /*Vertical*/
+	justify-content: center !important;               /*horizontal*/
+	text-align: center !important;
+	display: grid !important;                    /* Keep the Title on the top*/
+	.navbar-toggler{
+		margin-bottom: 10px;
+	} 
 `
 
 const Brand = styled(Navbar.Brand)`
@@ -78,9 +82,8 @@ const Brand = styled(Navbar.Brand)`
 	height: 60px; 
 	padding: 4px 10px 0 10px !important;
 	line-height: 0px;	
-  .nav-brand{
-		padding: 50px 10px 0 10px !important;
-	}
+
+
 `
 const StyledNav = styled(Nav)`
   /**
@@ -95,7 +98,9 @@ const StyledNav = styled(Nav)`
 	text-transform: uppercase;
 	font-family: 'Quattrocento Sans', sans-serif;
 	.nav-link{
-		color: black !important;
+		color: #222 !important; 
+		padding: 10px; 
+		border-bottom: 1px solid #DFDFDF; 
 		&:hover{
 			color: red !important;
 		}
@@ -103,11 +108,9 @@ const StyledNav = styled(Nav)`
 	
     
 `
-const StyledNavDropdown = styled(NavDropdown)`
-`
 
 const BrandCol = styled(Col)`
-    margin:5% auto;
+    margin:10% 0;
 `
 const NavbarCol = styled(Col)`
 

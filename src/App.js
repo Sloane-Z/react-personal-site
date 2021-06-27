@@ -8,9 +8,6 @@ import Home from './components/Home';
 import Experience from './components/Experience';
 import Project from './components/Project';
 import Contact from './components/Contact';
-import './App.css';
-
-
 
 
 export default function App() {
@@ -30,6 +27,15 @@ export default function App() {
         <Contact/>
       </Route>
 
+      <Route path='/Project'>
+        <Navbar/>
+        <Project/>
+      </Route>
+
+      <Route path='/Contact'>
+        <Navbar/>
+        <Contact/>
+      </Route>
     </Switch>
      
     </>

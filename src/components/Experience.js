@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled, { keyframes, css } from 'styled-components';
 
-import workData from '../content/content';
+import workData from '../content/expData';
 
 /***** Keyframes *****/
 const slideUp = keyframes`
