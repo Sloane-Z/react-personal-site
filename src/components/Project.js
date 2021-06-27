@@ -1,6 +1,14 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components';
 import '../styles/project.css';
+
+import {
+	Blokus_Cover,
+  Chomp_Cover,
+  TwoDPlatform_Cover,
+  PathFinding_Cover,
+  SaveTheBunny_Cover} from '../images';
+	import { Link } from 'react-router-dom';
 const Wrapper = styled.div`
 	text-align:left;
 	padding-left:10%;
@@ -42,22 +50,12 @@ export default class Project extends React.Component {
 			<Wrapper>
 				<Header>Project</Header>
 				<div id='gallery' className='container-fluid'>
-				<img src="https://source.unsplash.com/1600x1200?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/1024x768?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/1366x768?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/1920x1080?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/640x360?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/320x640?female,portrait" className="img-responsive"/>
-				
-				<img src="https://source.unsplash.com/800x600?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/600x800?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/400x600?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/600x400?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/1100x1600?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/1600x1100?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/992x768?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/768x992?female,portrait" className="img-responsive"/>
-				<img src="https://source.unsplash.com/1200x1600?female,portrait" className="card img-responsive"/>
+					<a href='https://www.notion.so/Blokus-458278377c20428fa213cb5c2c5efda6' target='_blank' rel='noreferrer'><img src={Blokus_Cover} className="img-responsive" alt='Blokus'/ ></a>
+					<a href='https://www.notion.so/Chomp-f3c70a99c0624979b4ebabd256518724' target='_blank' rel='noreferrer'><img src={Chomp_Cover} className="img-responsive" alt='Chomp'/> </a>
+					<a href='https://www.notion.so/Save-The-Bunny-db3e068b72c44f5db3bbbd4fe7154613' target='_blank' rel='noreferrer'><img src={SaveTheBunny_Cover} className="img-responsive" alt='SaveTheBunny'/></a>
+					<a href='https://www.notion.so/2D-Platform-Game-a12083c630ff4abf8c1c081263445d5f' target='_blank' rel='noreferrer'><img src={TwoDPlatform_Cover} className="img-responsive" alt='2DPlatform'/></a>			
+					<a href='https://www.notion.so/Improve-A-search-Algorithm-using-Jump-Point-Search-aaecc4a77b7e416eb2fa0a5626fc98ca' target='_blank' rel='noreferrer'><img src={PathFinding_Cover} className="img-responsive" alt='Pathfinding'/></a>
+					
 				</div>
 			</Wrapper>
 

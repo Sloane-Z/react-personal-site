@@ -8,7 +8,7 @@ import Home from './components/Home';
 import Experience from './components/Experience';
 import Project from './components/Project';
 import Contact from './components/Contact';
-
+import SingleProject from './components/SingleProject';
 
 export default function App() {
   
@@ -33,6 +33,11 @@ export default function App() {
       <Route path='/Contact'>
         <Navbar/>
         <Contact/>
+      </Route>
+
+      <Route path='/Project/:id'>
+        <Navbar/>
+        <SingleProject/>
       </Route>
     </Switch>
      
