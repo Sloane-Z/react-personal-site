@@ -66,16 +66,16 @@ const StyledContainer = styled(Container)`
 `
 
 const Brand = styled(Navbar.Brand)`
-	font-family: 'Great Vibes', cursive;
+	font-family: 'Cardo';
 	
 	font-size: 36px;
 	justify-content: center !important; 
 	align-items: center !important;
 	text-align: center !important;
 
-	font-family: 'Quattrocento Sans', sans-serif;
+	/*font-family: 'Quattrocento Sans', sans-serif;*/
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: 500;
 
 	white-space: nowrap;
 	letter-spacing: -0.03em;

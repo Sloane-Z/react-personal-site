@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes, css } from 'styled-components';
+import styled from 'styled-components';
 import '../styles/project.css';
 
 import {
@@ -8,7 +8,6 @@ import {
   TwoDPlatform_Cover,
   PathFinding_Cover,
   SaveTheBunny_Cover} from '../images';
-	import { Link } from 'react-router-dom';
 const Wrapper = styled.div`
 	text-align:left;
 	padding-left:10%;
@@ -31,18 +30,6 @@ const Header = styled.h1`
 
 `
 
-const SubHeader = styled.h1`
-	font-family: 'Cardo', serif; 
-	font-size: 19px; 
-	line-height: 1.35em; 
-
-`
-
-const Content = styled.p`
-  font-family: 'Quattrocento Sans', sans-serif;
-	font-size: 14px;
-	margin-bottom: 25px; 
-`
 
 export default class Project extends React.Component {
 	render() {
