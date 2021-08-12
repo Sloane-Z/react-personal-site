@@ -7,7 +7,6 @@ const workData = [
     location: 'St.John\'s, NL, Canada ',
     responsibility:[
       'Modified unit test for project API according to new changes and release',
-      'Debugging applications and implementing code fixes when necessary',
       'Led design and development of the automation test project from scratch using Xamarin UI Test for Mobile Android and iOS app',
       'Implemented the data verification on automation testing project using .NET API Microsoft Excel Interop',
       'Developed and executed test plans and test cases for UAT, functional and regression testing',

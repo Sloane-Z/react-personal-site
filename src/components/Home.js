@@ -75,49 +75,49 @@ const TitleFont = css`
 
 `
 const IconLinkFont = css`
-    font-size: 1.1rem;
-    font-weight: 400;
-    font-family: 'Playfair Display', serif;
+	font-size: 1.1rem;
+	font-weight: 400;
+	font-family: 'Playfair Display', serif;
 `
 
 /*************  Wrapper *************\
 \*************         *************/
 const Wrapper = styled.div`
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transition: all .3s;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	transition: all .3s;
 
-		position: relative;
-		box-sizing: border-box;
-		background-size: cover;
-		text-align: center;
-		overflow: hidden !important;
+	position: relative;
+	box-sizing: border-box;
+	background-size: cover;
+	text-align: center;
+	overflow: hidden !important;
 
-    #eduicon:hover ~ #edu{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
-    #expicon:hover ~ #exp{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
-    #prjicon:hover ~ #prj{
-        animation: ${slidein} 1.5s ease-in-out forwards;
+	#eduicon:hover ~ #edu{
+			animation: ${slidein} 1.5s ease-in-out forwards;
+	}
+	#expicon:hover ~ #exp{
+			animation: ${slidein} 1.5s ease-in-out forwards;
+	}
+	#prjicon:hover ~ #prj{
+			animation: ${slidein} 1.5s ease-in-out forwards;
 
-    }
-    #ctcicon:hover ~ #ctc{
-        animation: ${slidein} 1.5s ease-in-out forwards;
-    }
+	}
+	#ctcicon:hover ~ #ctc{
+			animation: ${slidein} 1.5s ease-in-out forwards;
+	}
 `
 
 const Title = styled.div`
-    font: 100 4rem 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    max-width: 300px;
-    margin: 0 auto;
-    z-index: 2;
-    color: #fff;
+	font: 100 4rem 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	max-width: 300px;
+	margin: 0 auto;
+	z-index: 2;
+	color: #fff;
 `
 /*********   Circle  **********/
 
@@ -140,39 +140,39 @@ const CircleBkg = styled.div`
 `
 
 const Circle1 = styled.div`
-    ${Circle};
-    ${props => props.anim};
+	${Circle};
+	${props => props.anim};
 `
 const Circle2 = styled.div`
-    ${Circle};
-    animation-duration: 5s;
-    ${props => props.anim};
+	${Circle};
+	animation-duration: 5s;
+	${props => props.anim};
 `
 
 const Circle3 = styled.div`
-    ${Circle};
-    animation-duration: 9s;
-    ${props => props.anim};
+	${Circle};
+	animation-duration: 9s;
+	${props => props.anim};
 `
 
 const Circle4 = styled.div`
-    ${Circle};
-    animation-duration: 3s;
-    ${props => props.anim};
+	${Circle};
+	animation-duration: 3s;
+	${props => props.anim};
 `
 
 
 
 /********  Icons ************/
 const IconsWrapper = styled.div` 
-    z-index:2;
-    align-items: center;
-    justify-content: center;
-    max-width: 300px;
-    height: 4em;
-    margin: 0;
-    padding: 2%;
-		${props => props.anim};
+	z-index:2;
+	align-items: center;
+	justify-content: center;
+	max-width: 300px;
+	height: 4em;
+	margin: 0;
+	padding: 2%;
+	${props => props.anim};
 `
 const IconText = styled.div`
   text-align: center;
