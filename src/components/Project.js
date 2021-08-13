@@ -46,7 +46,10 @@ export default class Project extends React.Component {
 						<img src={Blokus_Cover} className="img-responsive" alt='Blokus'></img>
 					</a>
 					<a href='https://www.notion.so/Chomp-f3c70a99c0624979b4ebabd256518724' target='_blank' rel='noreferrer'><img src={Chomp_Cover} className="img-responsive" alt='Chomp'/> </a>
-					<a href='https://fall-game-lovat.vercel.app' target='_blank' rel='noreferrer'><img src='https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d91f7435-279d-42a1-9c45-87dfacc10499/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210813%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210813T210230Z&X-Amz-Expires=86400&X-Amz-Signature=be588673dc02a5c4e9daa2ee63214a57f4a747390bd785f449413bcf5d2c5143&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22' className="img-responsive" alt='Falling Ball Game'/> </a>
+					<a href='https://like-drive-2e2.notion.site/Falling-Ball-Game-9ca5d73d791141378f3ec4a623c77c2b' 
+						 target='_blank' rel='noreferrer'>
+						<img src='https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d91f7435-279d-42a1-9c45-87dfacc10499/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210813%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210813T210230Z&X-Amz-Expires=86400&X-Amz-Signature=be588673dc02a5c4e9daa2ee63214a57f4a747390bd785f449413bcf5d2c5143&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22' className="img-responsive" alt='Falling Ball Game'/>
+					</a>
 					
 					
 				</div>
