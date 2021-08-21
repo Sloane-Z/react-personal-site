@@ -8,7 +8,7 @@ import Chomp_Cover from './Chomp/chomp-cover.jpg';
 import TwoDPlatform_Cover from './2DPlatform/mainmenu.png';
 import PathFinding_Cover from './pathfinding/pathfinding-cover.jpg';
 import SaveTheBunny_Cover from './SaveTheBunny/save-the-bunny-cover.png';
-
+import FallingBall_Cover from './FallingBall/FallingBall_Cover.png';
 export {
   Blokus_Cover,
   Chomp_Cover,
@@ -19,5 +19,6 @@ export {
   Blokus_info2,
   Blokus_MainMenu,
   Blokus_Score,
-  Blokus_SettingMenu
+  Blokus_SettingMenu,
+  FallingBall_Cover
 };
