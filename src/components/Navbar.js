@@ -52,7 +52,7 @@ const slideRightAnim = css`
 /*********** */
 const StyledNavbar = styled(Navbar)`
 	justify-content: center !important;
-	${fadeInAnim};
+	/*${fadeInAnim};*/
   
 `
 const StyledContainer = styled(Container)`
