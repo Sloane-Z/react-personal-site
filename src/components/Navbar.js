@@ -133,7 +133,7 @@ export default class navbar extends Component {
 						
 							<Row md={12} lg={12} sm={12}>
 									<BrandCol md={12} lg={12} sm={12}>
-										<Brand href="/">Sloane Zhang</Brand>
+										<Brand href="/">Yimiao Zhang</Brand>
 									</BrandCol>                      
 							</Row>
 							

@@ -290,7 +290,7 @@ class Home extends Component {
 			<Wrapper>
 
 				<Title>
-					Sloane Zhang
+					Yimiao Zhang
 				</Title>
 				<CircleBkg anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim}>
 					<Circle1 anim={this.state.isClicked ? CircleExitAnim : CircleLoopAnim} />
