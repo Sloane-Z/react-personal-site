@@ -70,13 +70,13 @@ const Header = styled.h1`
 const SubHeader = styled.h1`
 	font-family: 'Cardo', serif; 
 	font-size: 19px; 
+	font-weight: bold;
 	line-height: 1.35em; 
 	padding-left: 0;
 	margin-top:10px;
 	text-align: left;
+
 `
-
-
 
 const Content = styled.p`
   font-family: 'Quattrocento Sans', sans-serif;
@@ -119,7 +119,7 @@ export default class Experience extends Component {
 						<SubHeader>Harbin Institute of Technology</SubHeader>
 						<Content>Bachelor of Economics in Finance (Aug 2012- Jul 2016)</Content>
 					</ContentWrapper>
-
+				<hr></hr>
 				<Header>Work</Header>
 				<ContentWrapper>
 					{
@@ -143,7 +143,7 @@ export default class Experience extends Component {
 							))
 						}
 				</ContentWrapper>
-
+				<hr></hr>
 
 
 			</Wrapper>
