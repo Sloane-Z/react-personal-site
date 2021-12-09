@@ -51,6 +51,10 @@ export default class Project extends React.Component {
 						 target='_blank' rel='noreferrer'>
 						<img src={FallingBall_Cover} className="img-responsive" alt='Falling Ball Game'/>
 					</a>
+					<a href='https://todo-app-three-delta.vercel.app' 
+						 target='_blank' rel='noreferrer'>
+						<img src='https://cdn-icons-png.flaticon.com/512/3176/3176292.png' className="img-responsive" alt='Todo List'/>
+					</a>
 					
 					
 				</div>
