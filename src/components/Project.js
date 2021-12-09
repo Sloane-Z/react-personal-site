@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 import '../styles/project.css';
-
+import {Navbar, Container, Nav, NavDropdown, Row, Col, Image} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {motion} from 'framer-motion/dist/es/index'
 import {
 	Blokus_Cover,
   Chomp_Cover,
@@ -54,6 +56,26 @@ export default class Project extends React.Component {
 					
 					
 				</div>
+				<Container fluid>
+					<Row className = 'project-section'>
+						<Col className='img-section' sm={7} md={7} lg={7}>	
+								<a href='https://www.stjohnslocalguide.com/' target='_blank' rel='noreferrer'>
+									<img className='img' src='https://cdn.escapismmagazine.com/gallery/593536c432fd7.jpeg' >
+									</img>
+									
+									<div className ='proj-title' sm={12} md={12} lg={12}>
+												<h3>St.John's Local Guide</h3>
+									</div>
+								</a>
+						</Col>
+						<Col className='info-section' sm={5} md={5} lg={5}>	
+							<Row className='description' sm={5} md={5} lg={5}>
+									sdfsdf
+							</Row>
+						</Col>
+					</Row>
+
+				</Container>
 			</Wrapper>
 
 		)
