@@ -40,13 +40,13 @@ export default class Project extends React.Component {
 				<div id='gallery' className='container-fluid'>
 					
 					<a href='https://www.stjohnslocalguide.com/' target='_blank' rel='noreferrer'><img src='https://cdn.escapismmagazine.com/gallery/593536c432fd7.jpeg' className="img-responsive" alt='St.Johns Local Guide'/></a>
-					<a href='https://www.notion.so/Improve-A-search-Algorithm-using-Jump-Point-Search-aaecc4a77b7e416eb2fa0a5626fc98ca' target='_blank' rel='noreferrer'><img src={PathFinding_Cover} className="img-responsive" alt='Pathfinding'/></a>
-					<a href='https://www.notion.so/Save-The-Bunny-db3e068b72c44f5db3bbbd4fe7154613' target='_blank' rel='noreferrer'><img src={SaveTheBunny_Cover} className="img-responsive" alt='SaveTheBunny'/></a>
-					<a href='https://www.notion.so/2D-Platform-Game-a12083c630ff4abf8c1c081263445d5f' target='_blank' rel='noreferrer'><img src={TwoDPlatform_Cover} className="img-responsive" alt='2DPlatform'/></a>			
-					<a href='https://www.notion.so/Blokus-458278377c20428fa213cb5c2c5efda6' target='_blank' rel='noreferrer'>
+					<a href='https://like-drive-2e2.notion.site/Improve-A-search-Algorithm-using-Jump-Point-Search-aaecc4a77b7e416eb2fa0a5626fc98ca' target='_blank' rel='noreferrer'><img src={PathFinding_Cover} className="img-responsive" alt='Pathfinding'/></a>
+					<a href='https://like-drive-2e2.notion.site/Save-The-Bunny-db3e068b72c44f5db3bbbd4fe7154613' target='_blank' rel='noreferrer'><img src={SaveTheBunny_Cover} className="img-responsive" alt='SaveTheBunny'/></a>
+					<a href='https://like-drive-2e2.notion.site/2D-Platform-Game-a12083c630ff4abf8c1c081263445d5f' target='_blank' rel='noreferrer'><img src={TwoDPlatform_Cover} className="img-responsive" alt='2DPlatform'/></a>			
+					<a href='https://like-drive-2e2.notion.site/Blokus-458278377c20428fa213cb5c2c5efda6' target='_blank' rel='noreferrer'>
 						<img src={Blokus_Cover} className="img-responsive" alt='Blokus'></img>
 					</a>
-					<a href='https://www.notion.so/Chomp-f3c70a99c0624979b4ebabd256518724' target='_blank' rel='noreferrer'><img src={Chomp_Cover} className="img-responsive" alt='Chomp'/> </a>
+					<a href='https://like-drive-2e2.notion.site/Chomp-Game-f3c70a99c0624979b4ebabd256518724' target='_blank' rel='noreferrer'><img src={Chomp_Cover} className="img-responsive" alt='Chomp'/> </a>
 					<a href='https://like-drive-2e2.notion.site/Falling-Ball-Game-9ca5d73d791141378f3ec4a623c77c2b' 
 						 target='_blank' rel='noreferrer'>
 						<img src={FallingBall_Cover} className="img-responsive" alt='Falling Ball Game'/>
