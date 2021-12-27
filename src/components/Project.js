@@ -39,7 +39,7 @@ export default class Project extends React.Component {
 				<Header>Project</Header>
 				<div id='gallery' className='container-fluid'>
 					
-					<a href='https://www.stjohnslocalguide.com/' target='_blank' rel='noreferrer'><img src='https://cdn.escapismmagazine.com/gallery/593536c432fd7.jpeg' className="img-responsive" alt='St.Johns Local Guide'/></a>
+					<a href='https://stjohns-local-guide.herokuapp.com/' target='_blank' rel='noreferrer'><img src='https://cdn.escapismmagazine.com/gallery/593536c432fd7.jpeg' className="img-responsive" alt='St.Johns Local Guide'/></a>
 					<a href='https://like-drive-2e2.notion.site/Improve-A-search-Algorithm-using-Jump-Point-Search-aaecc4a77b7e416eb2fa0a5626fc98ca' target='_blank' rel='noreferrer'><img src={PathFinding_Cover} className="img-responsive" alt='Pathfinding'/></a>
 					<a href='https://like-drive-2e2.notion.site/Save-The-Bunny-db3e068b72c44f5db3bbbd4fe7154613' target='_blank' rel='noreferrer'><img src={SaveTheBunny_Cover} className="img-responsive" alt='SaveTheBunny'/></a>
 					<a href='https://like-drive-2e2.notion.site/2D-Platform-Game-a12083c630ff4abf8c1c081263445d5f' target='_blank' rel='noreferrer'><img src={TwoDPlatform_Cover} className="img-responsive" alt='2DPlatform'/></a>			
