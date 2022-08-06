@@ -116,8 +116,6 @@ export default class Experience extends Component {
 					<ContentWrapper>
 						<SubHeader>Memorial University of Newfoundland </SubHeader>
 						<Content>Bachelor of Science in Computer Science (Sep 2018 - current)</Content>
-						<SubHeader>Harbin Institute of Technology</SubHeader>
-						<Content>Bachelor of Economics in Finance (Aug 2012- Jul 2016)</Content>
 					</ContentWrapper>
 				<hr></hr>
 				<Header>Work</Header>
