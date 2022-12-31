@@ -117,7 +117,7 @@ const Title = styled.div`
 	max-width: 300px;
 	margin: 0 auto;
 	z-index: 2;
-	color: #fff;
+	color: #f7f4f2;
 `
 /*********   Circle  **********/
 
